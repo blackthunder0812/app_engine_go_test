@@ -1,0 +1,8 @@
+::-webkit-scrollbar { 
+	display: none; 
+}
+
+a.navbar-brand {
+	font-family: 'Sacramento', cursive;
+	font-size: 40px;
+}
