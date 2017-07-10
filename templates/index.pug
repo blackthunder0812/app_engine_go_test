@@ -1,0 +1,48 @@
+doctype html
+html(lang="en")
+  head
+    title sonbn
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="shortcut icon" type="image/x-icon" href="favicon.ico")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
+    script(src='https://www.gstatic.com/firebasejs/4.1.3/firebase.js')
+    script.
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDB0oOgJ5UvNtJobOu85CEcnBbOMwyEfOY",
+        authDomain: "sp3llst3al.firebaseapp.com",
+        databaseURL: "https://sp3llst3al.firebaseio.com",
+        projectId: "sp3llst3al",
+        storageBucket: "sp3llst3al.appspot.com",
+        messagingSenderId: "176238414837"
+      };
+      firebase.initializeApp(config);
+    script(src='https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.js')
+    script.
+       // FirebaseUI config.
+       var uiConfig = {
+          signInSuccessUrl: window.location.href,
+          signInFlow: 'popup',
+          signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+          firebase.auth.GithubAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+         ],
+         tosUrl: '',
+         credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
+       };
+
+       // Initialize the FirebaseUI Widget using Firebase.
+       var ui = new firebaseui.auth.AuthUI(firebase.auth());
+       // The start method will wait until the DOM is loaded.
+       ui.start('#firebaseui-auth-container', uiConfig);
+    link(type="text/css" rel="stylesheet" href='https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.css')
+  body
+    #firebaseui-auth-container
