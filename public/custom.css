@@ -2,7 +2,52 @@
 	display: none; 
 }
 
-a.navbar-brand {
+div.navbar-default {
+	background: lightsteelblue;
+}
+
+div.navbar.navbar-default > div.container {
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+div.navbar.navbar-default > div.container > div.navbar-header {
+	margin-right: 10px;
+	transform: skewX(-10deg) scaleY(1.4);
+}
+
+div.navbar.navbar-default > div.container > div.navbar-header > a.navbar-brand {
 	font-family: 'Sacramento', cursive;
 	font-size: 40px;
+	margin-left: 0px;
+	color: whitesmoke;
+	padding: 20px;
+	background-color: cornflowerblue;
+}
+
+div.navbar.navbar-default ul.nav.navbar-nav > li {
+	background-color: cornflowerblue;
+	transform: skewX(-10deg);
+	margin-left: 5px;
+}
+
+div.navbar-default ul.nav.navbar-nav > li:hover {
+	transform: skewX(-10deg) scaleY(1.1);
+	background-color: royalblue;
+	z-index: 1000;
+}
+
+div.navbar-default ul.nav.navbar-nav > li > a {
+	color: whitesmoke;
+}
+
+div.navbar-default ul.nav.navbar-nav > li > a:hover {
+	color: antiquewhite;
+}
+
+div.navbar-default ul.nav.navbar-nav > li.active > a, 
+div.navbar-default ul.nav.navbar-nav > li.active > a:focus, 
+div.navbar-default ul.nav.navbar-nav > li.active > a:hover {
+	color: antiquewhite;
+	background: royalblue;
 }
