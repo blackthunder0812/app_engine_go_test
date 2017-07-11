@@ -34,9 +34,10 @@ html(lang="en")
 					firebase.auth.FacebookAuthProvider.PROVIDER_ID,
 					firebase.auth.TwitterAuthProvider.PROVIDER_ID,
 					firebase.auth.GithubAuthProvider.PROVIDER_ID,
-					firebase.auth.EmailAuthProvider.PROVIDER_ID
+					firebase.auth.EmailAuthProvider.PROVIDER_ID,
+					firebase.auth.PhoneAuthProvider.PROVIDER_ID
 				],
-				tosUrl: '',
+				tosUrl: '/terms',
 				credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
 			};
 			// Initialize the FirebaseUI Widget using Firebase.
@@ -45,7 +46,37 @@ html(lang="en")
 			ui.start('#firebaseui-auth-container', uiConfig);
 		link(type="text/css" rel="stylesheet" href='https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.css')
 		link(href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet")
 		link(type="text/css" rel="stylesheet" href='custom.css')
 	body
 		include navigator.pug
-		#firebaseui-auth-container
+		div#account-details
+		div#login-notifier
+			h1 You must log in first to see this content
+			#firebaseui-auth-container
+		script.
+			window.addEventListener('load', function() {
+				firebase.auth().onAuthStateChanged(function(user) {
+					if (user) {
+						// User is signed in.
+						user.getIdToken().then(function(accessToken) {
+							document.getElementById('login-notifier').style.display = "none"
+							// generate account-details block
+							var accDetailsBlock = document.getElementById('account-details');
+							var photoElement = document.createElement("img");
+							photoElement.id = "user-profile-photo";
+							photoElement.src = user.photoURL;
+							accDetailsBlock.appendChild(photoElement);
+							var userNameElement = document.createElement("p");
+							userNameElement.id = "user-name-board";
+							userNameElement.textContent = user.displayName;
+							accDetailsBlock.appendChild(userNameElement);
+						});
+					} else {
+						// User is signed out.
+						document.getElementById('login-notifier').style.display = "block"
+					}
+				}, function(error) {
+					console.log(error);
+				});
+			});

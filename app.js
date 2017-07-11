@@ -13,4 +13,9 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
+app.get('/terms', function(req, res) {
+	res.type('html');
+	res.render('term-of-service');
+});
+
 app.listen(process.env.PORT || 8080);

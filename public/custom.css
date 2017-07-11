@@ -22,7 +22,7 @@ div.navbar.navbar-default > div.container > div.navbar-header {
 	border-radius: 5px;
 }
 
-div.navbar.navbar-default > div.container > div.navbar-header > a.navbar-brand {
+div.navbar.navbar-default > div.container > div.navbar-header > div.navbar-brand {
 	font-family: 'Sacramento', cursive;
 	font-size: 40px;
 	margin-left: 0px;
@@ -55,4 +55,38 @@ div.navbar.navbar-default ul.nav.navbar-nav > li.active > a:focus,
 div.navbar.navbar-default ul.nav.navbar-nav > li.active > a:hover {
 	color: antiquewhite;
 	background: royalblue;
+}
+
+div#login-notifier {
+	text-align: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-color: whitesmoke;
+}
+
+div#account-details {
+	display: block;
+	float:left;
+	overflow:auto;
+	position: fixed;
+	right: 5px;
+	top: 5px;
+	background-color: rgba(250, 250, 250, 0.25);
+	border-radius: 10px;
+}
+
+div#account-details > img#user-profile-photo {
+	border-radius: 50%;
+	padding: 5px;
+}
+
+div#account-details > p#user-name-board {
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 5px;
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+	border-radius: 5px;
 }
