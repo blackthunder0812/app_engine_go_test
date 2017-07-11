@@ -36,23 +36,23 @@ div.navbar.navbar-default ul.nav.navbar-nav > li {
 	margin-left: 5px;
 }
 
-div.navbar-default ul.nav.navbar-nav > li:hover {
+div.navbar.navbar-default ul.nav.navbar-nav > li:hover {
 	transform: skewX(-10deg) scaleY(1.1);
 	background-color: royalblue;
 	z-index: 1000;
 }
 
-div.navbar-default ul.nav.navbar-nav > li > a {
+div.navbar.navbar-default ul.nav.navbar-nav > li > a {
 	color: whitesmoke;
 }
 
-div.navbar-default ul.nav.navbar-nav > li > a:hover {
+div.navbar.navbar-default ul.nav.navbar-nav > li > a:hover {
 	color: antiquewhite;
 }
 
-div.navbar-default ul.nav.navbar-nav > li.active > a, 
-div.navbar-default ul.nav.navbar-nav > li.active > a:focus, 
-div.navbar-default ul.nav.navbar-nav > li.active > a:hover {
+div.navbar.navbar-default ul.nav.navbar-nav > li.active > a, 
+div.navbar.navbar-default ul.nav.navbar-nav > li.active > a:focus, 
+div.navbar.navbar-default ul.nav.navbar-nav > li.active > a:hover {
 	color: antiquewhite;
 	background: royalblue;
 }
